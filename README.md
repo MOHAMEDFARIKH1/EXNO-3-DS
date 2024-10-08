@@ -36,7 +36,7 @@ import pandas as pd
 df = pd.read_csv("Encoding Data.csv")
 df.head()
 ```
-![image](https://github.com/user-attachments/assets/7531f5bf-71cc-49c9-a8f6-5ff8ce3fe7c9)
+
 ```
 df.tail()
 ```
@@ -58,7 +58,6 @@ df
 ```
 ![image](https://github.com/user-attachments/assets/80e704a0-64f5-43bb-bc51-dbad5050cf45)
 ```
-#ordinal encoder
 from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
 pm=['Hot', 'Warm','Cold']
 oe=OrdinalEncoder(categories=[pm])
@@ -71,7 +70,6 @@ df
 ```
 ![image](https://github.com/user-attachments/assets/561d5492-56c5-4e2c-981e-488c8b74c411)
 ```
-#label Encoder
 le=LabelEncoder()
 dfc=df.copy()
 dfc['ord_2']=le.fit_transform(dfc['ord_2'])
@@ -79,7 +77,6 @@ dfc
 ```
 ![image](https://github.com/user-attachments/assets/a720eab8-1b86-4904-8bca-4d380975161a)
 ```
-#One hot encoder
 from sklearn.preprocessing import OneHotEncoder
 ohe = OneHotEncoder(sparse = False)
 df2=df.copy()
@@ -164,10 +161,7 @@ plt.show()
 ```
 from sklearn.preprocessing import QuantileTransformer
 qt=QuantileTransformer(output_distribution='normal',n_quantiles=891)
-
 df["Moderate Negative Skew"]=qt.fit_transform(df[["Moderate Negative Skew"]])
-
-
 sm.qqplot(df["Moderate Negative Skew"],line='45')
 plt.show()
 ```
