@@ -36,46 +36,55 @@ import pandas as pd
 df = pd.read_csv("Encoding Data.csv")
 df.head()
 ```
+![Screenshot 2024-10-08 095441](https://github.com/user-attachments/assets/874f4dad-96b9-4e73-a08f-5bfafbb7576d)
 
 ```
 df.tail()
 ```
-![image](https://github.com/user-attachments/assets/9903fdd3-25d0-4978-9ffe-be61b684b960)
+![Screenshot 2024-10-08 095444](https://github.com/user-attachments/assets/d0e318a4-1e75-4430-886c-58025d90828b)
+
 ```
 df.describe()
 ```
-![image](https://github.com/user-attachments/assets/78205313-62cb-498b-87f2-e2e516102845)
+![Screenshot 2024-10-08 095449](https://github.com/user-attachments/assets/08489405-b231-4676-8c71-6248dd7474a5)
+
 ```
 df.info()
 ```
-![image](https://github.com/user-attachments/assets/afc508b6-486c-417e-969e-74cdbc032002)
+![Screenshot 2024-10-08 095453](https://github.com/user-attachments/assets/1e94ce81-880c-44ee-8e51-aa6f9f3abc73)
+
 ```
 df.shape
 ```
-![image](https://github.com/user-attachments/assets/88683656-a9cb-4917-b9e8-bc908f880dae)
+![Screenshot 2024-10-08 095455](https://github.com/user-attachments/assets/4eac499e-7e1a-47ba-85a5-3eb1af435297)
+
 ```
 df
 ```
-![image](https://github.com/user-attachments/assets/80e704a0-64f5-43bb-bc51-dbad5050cf45)
+![Screenshot 2024-10-08 095459](https://github.com/user-attachments/assets/610cedfc-aca9-4786-bcae-9494b81d4520)
+
 ```
 from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
 pm=['Hot', 'Warm','Cold']
 oe=OrdinalEncoder(categories=[pm])
 oe.fit_transform(df[["ord_2"]])
 ```
-![image](https://github.com/user-attachments/assets/5c103aea-61f5-4b04-bc63-1a4de25f0c41)
+![Screenshot 2024-10-08 095503](https://github.com/user-attachments/assets/9ff2687a-eda6-4bd8-a834-672bb62a6c30)
+
 ```
 df['bo2']=oe.fit_transform(df[["ord_2"]])
 df
 ```
-![image](https://github.com/user-attachments/assets/561d5492-56c5-4e2c-981e-488c8b74c411)
+![Screenshot 2024-10-08 095507](https://github.com/user-attachments/assets/72824cdb-bf82-4b9c-85fd-f440bc9dd869)
+
 ```
 le=LabelEncoder()
 dfc=df.copy()
 dfc['ord_2']=le.fit_transform(dfc['ord_2'])
 dfc
 ```
-![image](https://github.com/user-attachments/assets/a720eab8-1b86-4904-8bca-4d380975161a)
+![Screenshot 2024-10-08 095511](https://github.com/user-attachments/assets/7bd86a5e-59cc-438c-9f37-c463730b9597)
+
 ```
 from sklearn.preprocessing import OneHotEncoder
 ohe = OneHotEncoder(sparse = False)
@@ -84,17 +93,20 @@ enc=pd.DataFrame(ohe.fit_transform(df2[["nom_0"]]))
 df2=pd.concat([df2,enc],axis=1)
 df2
 ```
-![image](https://github.com/user-attachments/assets/ac98867c-8883-4a48-bdb4-4468557a58c7)
+![Screenshot 2024-10-08 095514](https://github.com/user-attachments/assets/ecdb7a9f-6123-45d0-bd43-ac1b174edd89)
+
 ```
 pd.get_dummies(df2,columns=["nom_0"])
 ```
-![image](https://github.com/user-attachments/assets/01b853b5-b29a-4c08-8ef4-56326a9fbaa3)
+![Screenshot 2024-10-08 095518](https://github.com/user-attachments/assets/ed874260-e9ad-4b14-be5c-67f32c84c463)
+
 ```
 from category_encoders import BinaryEncoder
 df=pd.read_csv("data.csv")
 df
 ```
-![image](https://github.com/user-attachments/assets/00b518e6-2cd2-4106-bde2-9576ddd35ec9)
+![Screenshot 2024-10-08 095522](https://github.com/user-attachments/assets/ac8ef650-108c-4c17-9a32-b25e6fabaed7)
+
 ```
 be=BinaryEncoder()
 nd=be.fit_transform(df['Ord_2'])
@@ -102,7 +114,8 @@ dfb=pd.concat([df,nd],axis=1)
 dfb1=df.copy()
 dfb
 ```
-![image](https://github.com/user-attachments/assets/2ee8c5cb-7e10-498e-846d-89e2f884150a)
+![Screenshot 2024-10-08 095527](https://github.com/user-attachments/assets/91505b38-dfe3-458a-b9b7-8b4862efb89c)
+
 ```
 from category_encoders import TargetEncoder
 te=TargetEncoder()
@@ -111,7 +124,8 @@ new=te.fit_transform(X=CC["City"],y=CC["Target"])
 CC=pd.concat([CC,new],axis=1)
 CC
 ```
-![image](https://github.com/user-attachments/assets/1f780e63-299f-4c93-aad6-f7909314fb01)
+![Screenshot 2024-10-08 095531](https://github.com/user-attachments/assets/9f62c83e-249d-4523-a1fe-9e6a02599e89)
+
 ```
 import pandas as pd
 from scipy import stats
@@ -119,37 +133,45 @@ import numpy as np
 df=pd.read_csv("Data_to_Transform.csv")
 df
 ```
-![image](https://github.com/user-attachments/assets/3940dad4-6f8c-41bc-bcbb-990c73a984c3)
+![Screenshot 2024-10-08 095536](https://github.com/user-attachments/assets/fc9bd46e-4052-47c3-9f75-23de8e6202cf)
+
 ```
 df.skew()
 ```
-![image](https://github.com/user-attachments/assets/110790c5-5588-4fce-8e3c-821654097612)
+![Screenshot 2024-10-08 095540](https://github.com/user-attachments/assets/6d4e7777-8dc3-404d-9914-d2138e62f8ae)
+
 ```
 np.log(df["Highly Positive Skew"])
 ```
-![image](https://github.com/user-attachments/assets/c3284a53-1cde-4297-9864-8557e5421c29)
+![Screenshot 2024-10-08 095542](https://github.com/user-attachments/assets/1098433c-f991-4494-b8e2-7b17880de97c)
+
 ```
 np.reciprocal(df["Moderate Positive Skew"])
 ```
-![image](https://github.com/user-attachments/assets/cf03f1a7-713c-407c-ad85-95d95c44988d)
+![Screenshot 2024-10-08 095545](https://github.com/user-attachments/assets/1df3a58f-e9db-48bc-a2bc-5b83cd7cdb79)
+
 ```
 np.sqrt(df["Highly Positive Skew"])
 ```
-![image](https://github.com/user-attachments/assets/0c95cce9-b686-4e4b-8797-2ec0b48bd8a3)
+![Screenshot 2024-10-08 095549](https://github.com/user-attachments/assets/16acb480-21e3-4ad6-8d74-b21726679357)
+
 ```
 np.square(df["Highly Positive Skew"])
 ```
-![image](https://github.com/user-attachments/assets/211e76fe-ad93-4b94-9396-c99a0c542262)
+![Screenshot 2024-10-08 095553](https://github.com/user-attachments/assets/6129b474-79db-439e-a90d-b8acb29761e5)
+
 ```
 df["Highly Positive Skew_boxcox"], parameters=stats.boxcox(df["Highly Positive Skew"])
 df
 ```
-![image](https://github.com/user-attachments/assets/4ddc3b3c-e0a2-4ee7-bdb5-75e967fac832)
+![Screenshot 2024-10-08 095559](https://github.com/user-attachments/assets/cea6ab54-b5e0-43bd-a919-6a62e7c79551)
+
 ```
 df["Moderate Negative Skew_yeojohnson"],parameters =stats.yeojohnson(df["Moderate Negative Skew"])
 df
 ```
-![image](https://github.com/user-attachments/assets/87786dc5-4777-41de-b746-85273892cb78)
+![Screenshot 2024-10-08 095606](https://github.com/user-attachments/assets/30ac4269-c83d-429f-afa0-f4c53eed6608)
+
 ```
 import seaborn as sns
 import statsmodels.api as sm
@@ -157,7 +179,8 @@ import matplotlib.pyplot as plt
 sm.qqplot(df["Moderate Negative Skew"],line='45')
 plt.show()
 ```
-![image](https://github.com/user-attachments/assets/c3916c62-8d7d-4196-91b5-c65790dbc032)
+![Screenshot 2024-10-08 095612](https://github.com/user-attachments/assets/36aef3d7-35ee-4a95-bcd1-cb93f1c072ec)
+
 ```
 from sklearn.preprocessing import QuantileTransformer
 qt=QuantileTransformer(output_distribution='normal',n_quantiles=891)
@@ -165,33 +188,39 @@ df["Moderate Negative Skew"]=qt.fit_transform(df[["Moderate Negative Skew"]])
 sm.qqplot(df["Moderate Negative Skew"],line='45')
 plt.show()
 ```
-![image](https://github.com/user-attachments/assets/4b0296ba-87a6-45b1-b5b8-0600bad35d03)
+![Screenshot 2024-10-08 095618](https://github.com/user-attachments/assets/fdf41413-1c4a-4115-aa62-6515755a7013)
+
 ```
 df
 ```
-![image](https://github.com/user-attachments/assets/9f256fb0-5f73-46e3-af71-6b7a472e6dc5)
+![Screenshot 2024-10-08 095624](https://github.com/user-attachments/assets/dc855ea1-e033-414a-a483-642a1ff1f684)
+
 ```
 df["Moderate Negative Skew_1"]=qt.fit_transform(df[["Moderate Negative Skew"]])
 sm.qqplot(df['Moderate Negative Skew'],line='45')
 plt.show()
 ```
-![image](https://github.com/user-attachments/assets/974d1346-17af-4625-bf57-25aef8881d0c)
+![Screenshot 2024-10-08 095630](https://github.com/user-attachments/assets/b83dda79-ce7b-4865-8c35-5e058af86675)
+
 ```
 df["Highly Negative Skew_1"]=qt.fit_transform(df[["Highly Negative Skew"]])
 sm.qqplot(df['Highly Negative Skew'],line='45')
 plt.show()
 ```
-![image](https://github.com/user-attachments/assets/f42f7974-87d3-4a3b-a76a-bc678678e4e0)
+![Screenshot 2024-10-08 095636](https://github.com/user-attachments/assets/aad5e0d3-52e1-4af8-8e3f-81902590b1aa)
+
 ```
 sm.qqplot(df["Highly Negative Skew_1"],line='45')
 plt.show()
 ```
-![image](https://github.com/user-attachments/assets/39c1df12-cb19-4685-bb53-1b53e8db2ed2)
+![Screenshot 2024-10-08 095641](https://github.com/user-attachments/assets/70c3deff-ac73-41b8-8126-d34be8043ffe)
+
 ```
 sm.qqplot(np.reciprocal(df["Moderate Negative Skew"]),line='45')
 plt.show()
 ```
-![image](https://github.com/user-attachments/assets/83162936-a989-4ecb-b957-ceffc10d10db)
+![Screenshot 2024-10-08 095645](https://github.com/user-attachments/assets/9f7513b7-a996-4ae8-90f7-882cbf37cd2f)
+
 # RESULT:
   Thus in the given data, Feature Encoding, Transformation process and save the data to a file was performed successfully.
 
